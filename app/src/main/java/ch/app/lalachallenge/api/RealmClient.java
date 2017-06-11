@@ -19,7 +19,10 @@ class RealmClient {
     // fetch cached deliveries
     static Observable<List<Delivery>> getDeliveries(int offset) {
         Realm realm = Realm.getDefaultInstance();
-        return Observable.just(realm.copyFromRealm(realm.where(Delivery.class).findAll()))
+        List<Delivery> deliveryList = realm.copyFromRealm(realm.where(Delivery.class).findAll());
+        realm.close();
+
+        return Observable.just(deliveryList)
             .filter(deliveries -> !deliveries.isEmpty())
             .map(deliveries -> {
                 List<Delivery> list = new ArrayList<>();
