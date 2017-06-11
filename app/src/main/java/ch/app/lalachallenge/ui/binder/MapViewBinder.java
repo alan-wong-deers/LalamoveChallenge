@@ -15,9 +15,8 @@ public class MapViewBinder {
     @BindingAdapter("latlng")
     public static void setLatLng(MapView mapView, LatLng latLng) {
         mapView.getMapAsync(googleMap -> {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-            googleMap.addMarker(new MarkerOptions()
-                .position(latLng));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            googleMap.addMarker(new MarkerOptions().position(latLng));
             mapView.onResume();
         });
     }
