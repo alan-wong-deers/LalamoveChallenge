@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "36702703590",
+    "firebase_url": "https://lalamovechallenge-4a761.firebaseio.com",
+    "project_id": "lalamovechallenge-4a761",
+    "storage_bucket": "lalamovechallenge-4a761.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36702703590:android:bbd404f855298323",
+        "android_client_info": {
+          "package_name": "ch.app.lalachallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36702703590-ag0b1umqk3aj9ar7b8t6ea7g28cdh2dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp5Pz1pyfJYfb_lQPB0qvAsdE-5MsTC8Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

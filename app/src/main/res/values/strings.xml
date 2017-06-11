@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LalaChallenge</string>
+    <string name="api_key_map">AIzaSyAUQCHqqq3So5i9o-yI000LVW3hncvdOU0</string>
+
+    <string name="error_item">Error! Tap to retry.</string>
+    <string name="error_large">Error! Pull down to refresh</string>
+    <string name="title_list_fragment">Things to deliver</string>
+    <string name="title_details_fragment">Delivery details</string>
+</resources>

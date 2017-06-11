@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="ch.app.lalachallenge.viewmodel.ItemDeliveryVM"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{() -> viewModel.onItemClick()}">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simpleDraweeView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:fadeDuration="300"
+            fresco:roundAsCircle="true"
+            fresco:placeholderImage="@drawable/ic_image_placeholder"
+            fresco:placeholderImageScaleType="fitXY"
+            bind:imageUrl="@{viewModel.imageUrl}"/>
+
+        <TextView
+            android:id="@+id/textView_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@{viewModel.description}"
+            android:textSize="15sp"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintLeft_toRightOf="@+id/simpleDraweeView"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:tint="@color/colorPrimary"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_location"
+            app:layout_constraintLeft_toRightOf="@+id/simpleDraweeView"
+            app:layout_constraintTop_toBottomOf="@+id/textView_description"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/textView_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="1dp"
+            android:text="@{viewModel.address}"
+            android:textSize="13sp"
+            android:textColor="?android:textColorSecondary"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView_description"
+            fresco:layout_constraintBottom_toBottomOf="@+id/imageView"
+            fresco:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    </android.support.constraint.ConstraintLayout >
+</layout>

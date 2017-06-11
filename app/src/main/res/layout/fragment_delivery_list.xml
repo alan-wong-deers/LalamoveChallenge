@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="ch.app.lalachallenge.viewmodel.DeliveryListFragmentVM"/>
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{() -> viewModel.onRefresh()}"
+            app:refreshing="@{viewModel.refreshing}">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                bind:items="@{viewModel.list}"
+                bind:itemDecoration="@{true}"
+                bind:onLoadMore="@{viewModel.onLoadMore}"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.progressVisibility}"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="@{viewModel.errorVisibility}">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:tint="@color/colorAccent"
+                app:srcCompat="@drawable/ic_error"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_large"
+                android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
