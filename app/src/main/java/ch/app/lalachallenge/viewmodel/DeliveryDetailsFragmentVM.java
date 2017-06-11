@@ -35,5 +35,6 @@ public class DeliveryDetailsFragmentVM extends AbstractViewModel<DeliveryDetails
         address.set(delivery.location.address);
         imageUrl.set(delivery.imageUrl);
         latLng.set(new LatLng(delivery.location.lat, delivery.location.lng));
+        getViewOptional().playAnimation();
     }
 }

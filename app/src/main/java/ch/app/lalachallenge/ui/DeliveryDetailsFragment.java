@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 
 import ch.app.lalachallenge.R;
 import ch.app.lalachallenge.databinding.FragmentDeliveryDetailsBinding;
@@ -65,5 +66,11 @@ public class DeliveryDetailsFragment extends ViewModelBaseBindingFragment<Delive
     @Override
     public ViewModelBindingConfig getViewModelBindingConfig() {
         return new ViewModelBindingConfig(R.layout.fragment_delivery_details, getContext());
+    }
+
+    @Override
+    public void playAnimation() {
+        getBinding().cardView
+            .startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_delivery_change));
     }
 }
