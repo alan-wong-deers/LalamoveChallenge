@@ -1,4 +1,4 @@
-package ch.app.lalachallenge.adapter;
+package ch.app.lalachallenge.ui.adapter;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;

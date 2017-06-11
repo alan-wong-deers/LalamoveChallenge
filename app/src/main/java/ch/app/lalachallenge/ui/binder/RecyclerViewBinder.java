@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import ch.app.lalachallenge.adapter.RecyclerViewAdapter;
+import ch.app.lalachallenge.ui.adapter.RecyclerViewAdapter;
 import ch.app.lalachallenge.view.ItemIView;
 import io.reactivex.functions.Action;
 
