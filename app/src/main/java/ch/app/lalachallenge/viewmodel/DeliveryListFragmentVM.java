@@ -7,7 +7,6 @@ import android.databinding.ObservableList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -112,7 +111,7 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
                     list.add(new ItemProgressVM());
                 }
 
-                Log.d("debug", "list size = " + list.size());
+                //Log.d("debug", "list size = " + list.size());
             });
     }
 

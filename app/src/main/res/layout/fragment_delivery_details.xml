@@ -27,6 +27,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:alpha="0.9"
+            android:visibility="@{viewModel.detailsVisibility}"
             card_view:cardCornerRadius="4dp">
 
             <LinearLayout
