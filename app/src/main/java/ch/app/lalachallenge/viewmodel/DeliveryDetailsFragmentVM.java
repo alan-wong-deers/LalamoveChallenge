@@ -38,7 +38,12 @@ public class DeliveryDetailsFragmentVM extends AbstractViewModel<DeliveryDetails
         }
         else {
             detailsVisibility.set(View.GONE);
-            realm.addChangeListener(realm1 -> setDefaultDelivery());
+            realm.addChangeListener(realmChanged -> {
+                // listen for realm change only for the first batch of data
+                // no need to listen for the comming changes
+                realmChanged.removeAllChangeListeners();
+                setDefaultDelivery();
+            });
         }
     }
 
