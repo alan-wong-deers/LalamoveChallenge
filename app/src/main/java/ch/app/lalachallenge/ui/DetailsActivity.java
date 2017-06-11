@@ -41,11 +41,6 @@ public class DetailsActivity extends ViewModelBaseEmptyActivity {
         detailsFragment.getViewModel().setDelivery(delivery);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {

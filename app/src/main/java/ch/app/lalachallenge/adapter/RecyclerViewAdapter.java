@@ -17,9 +17,9 @@ import ch.app.lalachallenge.view.ItemIView;
 
 public class RecyclerViewAdapter<T extends ItemIView> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private List<? extends T> list;
+    private List<T> list;
 
-    public RecyclerViewAdapter(List<? extends T> list) {
+    public RecyclerViewAdapter(List<T> list) {
         this.list = list;
     }
 

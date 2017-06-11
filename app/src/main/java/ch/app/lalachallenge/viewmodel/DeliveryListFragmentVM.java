@@ -7,6 +7,7 @@ import android.databinding.ObservableList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -59,7 +60,7 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
     public Action onLoadMore = () -> {
         if(!isLoading) {
             //Log.d("debug", "load more");
-            isLoading = true;
+            //isLoading = true;
             loadDeliveries();
         }
     };
@@ -71,17 +72,18 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
             loadDeliveries();
         }
         else {
+            // do nothing if loading
             refreshing.set(false);
         }
     }
 
     private void loadDeliveries() {
+        errorVisibility.set(View.GONE);
         if(list.isEmpty()) {
             progressVisibility.set(View.VISIBLE);
         }
 
-        errorVisibility.set(View.GONE);
-
+        isLoading = true;
         disposable = ApiClient.getDeliveries(list.isEmpty() ? 0 : list.size()-1)
             .subscribe(
                 this::onNext,
@@ -110,7 +112,7 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
                     list.add(new ItemProgressVM());
                 }
 
-                //Log.d("debug", "list size = " + list.size());
+                Log.d("debug", "list size = " + list.size());
             });
     }
 
@@ -120,9 +122,9 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
         refreshing.set(false);
         progressVisibility.set(View.GONE);
         if(!list.isEmpty()) {
-            list.remove(list.size() - 1);
+            list.remove(list.size() - 1); //remove the loading item
             list.add(new ItemErrorVM(() -> {
-                list.remove(list.size() - 1);
+                list.remove(list.size() - 1); // remove the loading item
                 list.add(new ItemProgressVM());
                 onLoadMore.run();
             }));

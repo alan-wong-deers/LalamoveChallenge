@@ -3,8 +3,6 @@ package ch.app.lalachallenge.ui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
@@ -40,14 +38,6 @@ public class DeliveryDetailsFragment extends ViewModelBaseBindingFragment<Delive
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
         }
         getBinding().mapView.onCreate(mapViewBundle);
-
-        if(getResources().getInteger(R.integer.multi_pane_mode) == 1) {
-            ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.setTitle(R.string.title_details_fragment);
-                actionBar.setDisplayHomeAsUpEnabled(true);
-            }
-        }
     }
 
     @Override
