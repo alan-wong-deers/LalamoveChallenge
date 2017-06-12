@@ -50,6 +50,8 @@ public class DeliveryDetailsFragmentVM extends AbstractViewModel<DeliveryDetails
     @Override
     public void onDestroy() {
         super.onDestroy();
+        //in case the activity destroy before realm change
+        realm.removeAllChangeListeners();
         realm.close();
     }
 
