@@ -34,10 +34,9 @@ public class DetailsActivity extends ViewModelBaseEmptyActivity {
         setContentView(R.layout.activity_details);
         setupActionBar();
 
+        Delivery delivery = Parcels.unwrap(getIntent().getParcelableExtra(DeliveryDetailsFragmentVM.DELIVERY_BUNDLE_KEY));
         DeliveryDetailsFragment detailsFragment
             = (DeliveryDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-
-        Delivery delivery = Parcels.unwrap(getIntent().getParcelableExtra(DeliveryDetailsFragmentVM.DELIVERY_BUNDLE_KEY));
         detailsFragment.getViewModel().setDelivery(delivery);
     }
 

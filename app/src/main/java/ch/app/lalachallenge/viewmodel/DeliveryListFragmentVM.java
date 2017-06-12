@@ -7,7 +7,6 @@ import android.databinding.ObservableList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -60,7 +59,6 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
     public Action onLoadMore = () -> {
         if(!isLoading) {
             //Log.d("debug", "load more");
-            //isLoading = true;
             loadDeliveries();
         }
     };
@@ -78,17 +76,17 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
     }
 
     private void loadDeliveries() {
+        isLoading = true;
         errorVisibility.set(View.GONE);
         if(list.isEmpty()) {
             progressVisibility.set(View.VISIBLE);
         }
 
-        isLoading = true;
         disposable = ApiClient.getDeliveries(list.isEmpty() ? 0 : list.size()-1)
             .subscribe(
                 this::onNext,
                 this::onError,
-                () -> Log.d("debug", "onComplete()")
+                () -> {} //Log.d("debug", "onComplete()")
             );
     }
 

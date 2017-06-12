@@ -20,11 +20,11 @@ import eu.inloop.viewmodel.binding.ViewModelBindingConfig;
 public class DeliveryDetailsFragment extends ViewModelBaseBindingFragment<DeliveryDetailsFragmentIView, DeliveryDetailsFragmentVM, FragmentDeliveryDetailsBinding> implements DeliveryDetailsFragmentIView {
 
     private static final String MAPVIEW_BUNDLE_KEY = "MAPVIEW_BUNDLE_KEY";
-
+/*
     public static DeliveryDetailsFragment newInstance() {
         return new DeliveryDetailsFragment();
     }
-
+*/
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
