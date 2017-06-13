@@ -12,10 +12,6 @@ import ch.app.lalachallenge.viewmodel.DeliveryListFragmentVM;
 import eu.inloop.viewmodel.binding.ViewModelBaseBindingFragment;
 import eu.inloop.viewmodel.binding.ViewModelBindingConfig;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class DeliveryListFragment extends ViewModelBaseBindingFragment<DeliveryListFragmentIView, DeliveryListFragmentVM, FragmentDeliveryListBinding> implements DeliveryListFragmentIView {
 
     @Override

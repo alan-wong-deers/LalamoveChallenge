@@ -8,10 +8,6 @@ import io.realm.DeliveryRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-/**
- * Created by alanwong on 6/8/17.
- */
-
 @Parcel(implementations = { DeliveryRealmProxy.class },
         value = Parcel.Serialization.BEAN,
         analyze = { Delivery.class })

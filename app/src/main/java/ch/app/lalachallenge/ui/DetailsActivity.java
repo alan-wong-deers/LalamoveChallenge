@@ -13,10 +13,6 @@ import ch.app.lalachallenge.model.Delivery;
 import ch.app.lalachallenge.viewmodel.DeliveryDetailsFragmentVM;
 import eu.inloop.viewmodel.base.ViewModelBaseEmptyActivity;
 
-/**
- * Created by alanwong on 6/11/17.
- */
-
 public class DetailsActivity extends ViewModelBaseEmptyActivity {
 
     public static void start(Context context, Delivery delivery) {

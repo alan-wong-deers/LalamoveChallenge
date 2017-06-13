@@ -13,18 +13,10 @@ import ch.app.lalachallenge.viewmodel.DeliveryDetailsFragmentVM;
 import eu.inloop.viewmodel.binding.ViewModelBaseBindingFragment;
 import eu.inloop.viewmodel.binding.ViewModelBindingConfig;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class DeliveryDetailsFragment extends ViewModelBaseBindingFragment<DeliveryDetailsFragmentIView, DeliveryDetailsFragmentVM, FragmentDeliveryDetailsBinding> implements DeliveryDetailsFragmentIView {
 
     private static final String MAPVIEW_BUNDLE_KEY = "MAPVIEW_BUNDLE_KEY";
-/*
-    public static DeliveryDetailsFragment newInstance() {
-        return new DeliveryDetailsFragment();
-    }
-*/
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

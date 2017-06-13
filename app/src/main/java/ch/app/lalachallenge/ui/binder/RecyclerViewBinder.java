@@ -11,10 +11,6 @@ import ch.app.lalachallenge.ui.adapter.RecyclerViewAdapter;
 import ch.app.lalachallenge.view.ItemIView;
 import io.reactivex.functions.Action;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class RecyclerViewBinder {
 
     @BindingAdapter("items")

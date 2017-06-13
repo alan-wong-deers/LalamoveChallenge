@@ -12,10 +12,6 @@ import ch.app.lalachallenge.view.DeliveryDetailsFragmentIView;
 import eu.inloop.viewmodel.AbstractViewModel;
 import io.realm.Realm;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class DeliveryDetailsFragmentVM extends AbstractViewModel<DeliveryDetailsFragmentIView> {
 
     public static final String DELIVERY_BUNDLE_KEY = "DELIVERY_BUNDLE_KEY";

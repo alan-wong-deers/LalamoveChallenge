@@ -11,7 +11,11 @@ import android.view.View;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import ch.app.lalachallenge.api.ApiClient;
+import ch.app.lalachallenge.di.component.DaggerApiClientComponent;
+import ch.app.lalachallenge.di.module.ApiClientModule;
 import ch.app.lalachallenge.model.Delivery;
 import ch.app.lalachallenge.view.DeliveryListFragmentIView;
 import ch.app.lalachallenge.view.ItemIView;
@@ -20,11 +24,10 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragmentIView> {
+
+    @Inject
+    ApiClient apiClient;
 
     private boolean isLoading = false;
     private Disposable disposable;
@@ -38,6 +41,11 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
     @Override
     public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState) {
         super.onCreate(arguments, savedInstanceState);
+        DaggerApiClientComponent
+            .builder()
+            .apiClientModule(new ApiClientModule("http://lavamovechallenge.eu-2.evennode.com/"))
+            .build()
+            .inject(this);
     }
 
     @Override
@@ -82,7 +90,7 @@ public class DeliveryListFragmentVM extends AbstractViewModel<DeliveryListFragme
             progressVisibility.set(View.VISIBLE);
         }
 
-        disposable = ApiClient.getDeliveries(list.isEmpty() ? 0 : list.size()-1)
+        disposable = apiClient.getDeliveries(list.isEmpty() ? 0 : list.size()-1)
             .subscribe(
                 this::onNext,
                 this::onError,

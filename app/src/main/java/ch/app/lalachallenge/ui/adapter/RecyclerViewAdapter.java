@@ -11,10 +11,6 @@ import java.util.List;
 import ch.app.lalachallenge.BR;
 import ch.app.lalachallenge.view.ItemIView;
 
-/**
- * Created by alanwong on 6/9/17.
- */
-
 public class RecyclerViewAdapter<T extends ItemIView> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     private List<T> list;

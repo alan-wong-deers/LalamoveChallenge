@@ -9,15 +9,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 
-/**
- * Created by alanwong on 6/8/17.
- */
-
-class RealmClient {
+public class RealmClient {
     private static final int LIMIT = 20;
 
+    public RealmClient() {
+
+    }
+
     // fetch cached deliveries
-    static Observable<List<Delivery>> getDeliveries(int offset) {
+    Observable<List<Delivery>> getDeliveries(int offset) {
         Realm realm = Realm.getDefaultInstance();
         List<Delivery> deliveryList = realm.copyFromRealm(realm.where(Delivery.class).findAll());
         realm.close();

@@ -7,14 +7,20 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by alanwong on 6/8/17.
- */
-
 public class ApiClient {
+
+    private ApiService apiService;
+    private RealmClient realmClient;
+
+    public ApiClient(RetrofitClient retrofitClient, RealmClient realmClient) {
+        apiService = new ApiService(retrofitClient);
+        this.realmClient = realmClient;
+
+    }
+
     // merge cached and network observables
-    public static Observable<List<Delivery>> getDeliveries(int offset) {
-        return Observable.concat(RealmClient.getDeliveries(offset), RetrofitClient.getInstance().getDeliveries(offset))
+    public Observable<List<Delivery>> getDeliveries(int offset) {
+        return Observable.concat(realmClient.getDeliveries(offset), apiService.getDeliveries(offset))
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .unsubscribeOn(AndroidSchedulers.mainThread());

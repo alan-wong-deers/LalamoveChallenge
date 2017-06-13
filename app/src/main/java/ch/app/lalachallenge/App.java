@@ -7,11 +7,8 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 import io.realm.Realm;
 
-/**
- * Created by alanwong on 6/8/17.
- */
-
 public class App extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();

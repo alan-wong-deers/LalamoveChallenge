@@ -7,10 +7,6 @@ import org.parceler.Parcel;
 import io.realm.LocationRealmProxy;
 import io.realm.RealmObject;
 
-/**
- * Created by alanwong on 6/8/17.
- */
-
 @Parcel(implementations = { LocationRealmProxy.class },
         value = Parcel.Serialization.BEAN,
         analyze = { Location.class })
